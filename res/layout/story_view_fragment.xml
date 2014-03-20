@@ -46,14 +46,14 @@ products or services derived from the iRemember source, nor does it
 grant permission for the name Vanderbilt University or
 University of Maryland to appear in their names.
   -->
-  
+
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/StoryEditRelativeLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
 
-   <ScrollView 
+   <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="640dp"
@@ -61,7 +61,7 @@ University of Maryland to appear in their names.
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp" >
 
-      <RelativeLayout 
+      <RelativeLayout
 	  android:id="@+id/StoryViewRelativeLayout"
 	  android:layout_width="match_parent"
 	  android:layout_height="wrap_content"
@@ -74,10 +74,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_title"
-	            android:layout_alignBottom="@+id/story_view_value_title"   
+	            android:layout_alignBottom="@+id/story_view_value_title"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_title"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <TextView
 	            android:id="@+id/story_view_value_title"
 	            android:layout_width="wrap_content"
@@ -85,7 +85,7 @@ University of Maryland to appear in their names.
 	            android:layout_alignParentRight="true"
 	            android:layout_below="@+id/story_view_value_story_id"
 	            android:text="@string/story_view_edittext_title_default_value"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />   
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	  <!-- body -->
 	    <TextView
 	            android:id="@+id/story_view_label_body"
@@ -93,10 +93,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_body"
-	            android:layout_alignBottom="@+id/story_view_value_body"   
+	            android:layout_alignBottom="@+id/story_view_value_body"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_body"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <TextView
 	            android:id="@+id/story_view_value_body"
 	            android:layout_width="wrap_content"
@@ -104,7 +104,7 @@ University of Maryland to appear in their names.
 	            android:layout_alignParentRight="true"
 	            android:layout_below="@+id/story_view_value_title"
 	            android:text="@string/story_view_edittext_body_default_value"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />   
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	  <!-- audioLink -->
 	    <TextView
 	            android:id="@+id/story_view_label_audio_link"
@@ -112,10 +112,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_audio_link"
-	            android:layout_alignBottom="@+id/story_view_value_audio_link"   
+	            android:layout_alignBottom="@+id/story_view_value_audio_link"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_audio_link"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <Button
 	            android:id="@+id/story_view_value_audio_link"
 	            android:layout_width="wrap_content"
@@ -123,7 +123,7 @@ University of Maryland to appear in their names.
 	            android:layout_alignParentRight="true"
 	            android:layout_below="@+id/story_view_value_body"
 	            android:text="@string/story_view_edittext_audio_link_default_value"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />   
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	  <!-- videoLink -->
 	    <TextView
 	            android:id="@+id/story_view_label_video_link"
@@ -131,18 +131,18 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_video_link"
-	            android:layout_alignBottom="@+id/story_view_value_video_link"  
+	            android:layout_alignBottom="@+id/story_view_value_video_link"
 	            android:paddingBottom="206dp"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_video_link"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <VideoView
 	            android:id="@+id/story_view_value_video_link"
 	            android:layout_width="fill_parent"
 	            android:layout_height="200dp"
 	            android:layout_alignParentRight="true"
 	            android:layout_marginTop="10dp"
-	            android:layout_below="@+id/story_view_value_audio_link" />   
+	            android:layout_below="@+id/story_view_value_audio_link" />
 	  <!-- imageName -->
 	    <TextView
 	            android:id="@+id/story_view_label_image_name"
@@ -150,10 +150,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_image_name"
-	            android:layout_alignBottom="@+id/story_view_value_image_name"   
+	            android:layout_alignBottom="@+id/story_view_value_image_name"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_image_name"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <TextView
 	            android:id="@+id/story_view_value_image_name"
 	            android:layout_width="wrap_content"
@@ -161,7 +161,7 @@ University of Maryland to appear in their names.
 	            android:layout_alignParentRight="true"
 	            android:layout_below="@+id/story_view_value_video_link"
 	            android:text="@string/story_view_edittext_image_name_default_value"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />   
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	  <!-- imageMetaData -->
 	    <TextView
 	            android:id="@+id/story_view_label_image_meta_data"
@@ -169,10 +169,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_image_meta_data"
-	            android:layout_alignBottom="@+id/story_view_value_image_meta_data"   
+	            android:layout_alignBottom="@+id/story_view_value_image_meta_data"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_image_meta_data"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <ImageView
 	            android:id="@+id/story_view_value_image_meta_data"
 	            android:src="@drawable/ic_launcher"
@@ -181,10 +181,10 @@ University of Maryland to appear in their names.
 	            android:layout_alignParentRight="true"
 	            android:layout_below="@+id/story_view_value_image_name"
 	            android:text="@string/story_view_edittext_image_meta_data_default_value"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />   
-	  <!-- tags -->   
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
+	  <!-- tags -->
 	  <!-- creationTime -->
-   
+
 	  <!-- storyTime -->
 	    <TextView
 	            android:id="@+id/story_view_label_story_time"
@@ -192,10 +192,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_story_time"
-	            android:layout_alignBottom="@+id/story_view_value_story_time"   
+	            android:layout_alignBottom="@+id/story_view_value_story_time"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_story_time"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	    <TextView
 	        android:id="@+id/story_view_value_story_time"
@@ -205,7 +205,7 @@ University of Maryland to appear in their names.
 	        android:layout_below="@+id/story_view_value_image_meta_data"
 	        android:text="@string/story_view_edittext_story_time_default_value"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
-   
+
 	  <!-- latitude -->
 	    <TextView
 	            android:id="@+id/story_view_label_latitude"
@@ -213,10 +213,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_latitude"
-	            android:layout_alignBottom="@+id/story_view_value_latitude"   
+	            android:layout_alignBottom="@+id/story_view_value_latitude"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_latitude"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <TextView
 	            android:id="@+id/story_view_value_latitude"
 	            android:layout_width="wrap_content"
@@ -224,7 +224,7 @@ University of Maryland to appear in their names.
 	            android:layout_alignParentRight="true"
 	            android:layout_below="@+id/story_view_value_story_time"
 	            android:text="@string/story_view_edittext_latitude_default_value"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />   
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	  <!-- longitude -->
 	    <TextView
 	            android:id="@+id/story_view_label_longitude"
@@ -232,10 +232,10 @@ University of Maryland to appear in their names.
 	            android:layout_height="wrap_content"
 	            android:layout_alignParentLeft="true"
 	            android:layout_alignBaseline="@+id/story_view_value_longitude"
-	            android:layout_alignBottom="@+id/story_view_value_longitude"   
+	            android:layout_alignBottom="@+id/story_view_value_longitude"
 	            android:layout_gravity="left"
 	            android:text="@string/story_view_label_longitude"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />  
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	    <TextView
 	            android:id="@+id/story_view_value_longitude"
 	            android:layout_width="wrap_content"
@@ -243,10 +243,7 @@ University of Maryland to appear in their names.
 	            android:layout_alignParentRight="true"
 	            android:layout_below="@+id/story_view_value_latitude"
 	            android:text="@string/story_view_edittext_longitude_default_value"
-	            android:textAppearance="?android:attr/textAppearanceMedium" />   
-	  
-
-
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
       </RelativeLayout>
   </ScrollView>
 

@@ -72,6 +72,8 @@ import android.widget.VideoView;
 import edu.vanderbilt.mooc.R;
 import edu.vuum.mocca.orm.MoocResolver;
 import edu.vuum.mocca.orm.StoryData;
+import java.io.File;
+import java.net.URI;
 
 public class StoryViewFragment extends Fragment {
 
@@ -243,11 +245,14 @@ public class StoryViewFragment extends Fragment {
 
 			// Set up video playback using the MediaController android widget
 			// and the video view already set up in the layout file.
-            if(videoLinkPath != null) {
+            
+
+            Log.d(LOG_TAG, "Going to play video: " + videoLinkPath);
+            if(!"".equals(videoLinkPath)) {
+
                 // TODO - Create a new MediaController for this activity
                 final MediaController mMediaController = new MediaController(
                         getActivity(), true);
-
 
                 // TODO - The MediaController needs an anchorview. Anchor the Media Controller
                 // to the VideoView, videoLinkView, with the function setAnchorView()
@@ -270,10 +275,13 @@ public class StoryViewFragment extends Fragment {
             imageNameTV.setText(String.valueOf(storyData.imageName).toString());
 
             String imageMetaDataPath = String.valueOf(storyData.imageLink).toString();
+
             // TODO - Set the URI of the ImageView to the image path stored in the string
             // imageMetaDataPath, using the setImageURI function from the ImageView
-            imageMetaDataView.setImageURI(Uri.parse(imageMetaDataPath));
-
+            if(!"".equals(imageMetaDataPath)){
+                Log.d(LOG_TAG, String.format("Setting the image: %s", imageMetaDataPath));
+                imageMetaDataView.setImageURI(Uri.parse(imageMetaDataPath));
+            }
 
 			Long time = Long.valueOf(storyData.storyTime);
 			storyTimeTV.setText(StoryData.FORMAT.format(time));

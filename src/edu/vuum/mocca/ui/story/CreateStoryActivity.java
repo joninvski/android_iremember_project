@@ -66,6 +66,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import android.provider.MediaStore;
+import android.content.pm.PackageManager;
 
 /**
  * Fragments require a Container Activity, this is the one for the Edit
@@ -199,8 +200,7 @@ public class CreateStoryActivity extends StoryActivityBase {
 
 		// For future implementation: store videos in a separate directory
 		File mediaStorageDir = new File(
-				Environment
-						.getExternalStorageDirectory(),
+				Environment.getExternalStorageDirectory(),
 				"iRemember");
 		// This location works best if you want the created images to be shared
 		// between applications and persist after your app has been uninstalled.
@@ -236,6 +236,9 @@ public class CreateStoryActivity extends StoryActivityBase {
 
 	// This function creates a new Intent to launch the Audio Recording Activity
 	private void launchSoundIntent() {
+        if(!hasSD()) {
+            return;
+        }
 
 		// TODO - Create a new intent to launch the SoundRecordActivity activity
         Intent intent = new Intent(this, SoundRecordActivity.class);
@@ -243,6 +246,9 @@ public class CreateStoryActivity extends StoryActivityBase {
 		// TODO - Use getOutputMediaFile() to create a new
 		// filename for this specific sound file
         File outputFile = getOutputMediaFile(MEDIA_TYPE_AUDIO);
+        if(outputFile == null) {
+            return;
+        }
 
 		// TODO - Add the filename to the Intent as an extra. Use the Intent-extra name
 		// from the SoundRecordActivity class, EXTRA_OUTPUT
@@ -254,8 +260,10 @@ public class CreateStoryActivity extends StoryActivityBase {
 	}
 
 	// This function creates a new Intent to launch the built-in Camera activity
-
 	private void launchCameraIntent() {
+        if(!hasSD() || !hasCamera()){
+            return;
+        }
 
 		// TODO - Create a new intent to launch the MediaStore, Image capture function
 		// Hint: use standard Intent from MediaStore class
@@ -265,27 +273,57 @@ public class CreateStoryActivity extends StoryActivityBase {
 		// TODO - Set the imagePath for this image file using the pre-made function
 		// getOutputMediaFile to create a new filename for this specific image;
         File outputFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+        if(outputFile == null) {
+            return;
+        }
 
 		// TODO - Add the filename to the Intent as an extra. Use the Intent-extra name
 		// from the MediaStore class, EXTRA_OUTPUT
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFile.getAbsolutePath());
+        // String outputImagePath = outputFile.getAbsolutePath();
+        outputFile.setWritable(true, false);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(outputFile));
+        fragment.imagePath = Uri.fromFile(outputFile);
 
 		// TODO - Start a new activity for result, using the new intent and the request
 		// code CAMERA_PIC_REQUEST
         startActivityForResult(intent, CAMERA_PIC_REQUEST);
 	}
 
-	// This function creates a new Intent to launch the built-in Video Camera activity
+    private boolean hasCamera(){
+        if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
+            Toast.makeText(getApplicationContext(), "No camera exists on the device", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
 
+    private boolean hasSD() {
+        if(!android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
+            Toast.makeText(getApplicationContext(), "No SD CARD exists on the device", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+
+	// This function creates a new Intent to launch the built-in Video Camera activity
 	private void launchVideoCameraIntent() {
+
+        if(!hasSD() || !hasCamera()){
+            return;
+        }
+
 		// TODO - Create a new intent to launch the MediaStore, Image capture function
 		// Hint: use standard Intent from MediaStore class
 		// See: http://developer.android.com/reference/android/provider/MediaStore.html
         Intent intent = new Intent(android.provider.MediaStore.ACTION_VIDEO_CAPTURE);
 
+
 		// TODO - Set the fileUri for this video file using the pre-made function
 		// getOutputMediaFile to create a new filename for this specific video;
         File outputFile = getOutputMediaFile(MEDIA_TYPE_VIDEO);
+        if(outputFile == null) {
+            return;
+        }
 
 		// TODO - Add the filename to the Intent as an extra. Use the Intent-extra name
 		// from the MediaStore class, EXTRA_OUTPUT
@@ -295,7 +333,6 @@ public class CreateStoryActivity extends StoryActivityBase {
 		// TODO - Specify as an extra that the video quality should be HIGH. Use the
 		// Intent-extra name, EXTRA_VIDEO_QUALITY, from the MediaStore class
 		// set the video image quality to high
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFile.getAbsolutePath());
         intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
 
 		// TODO - Start a new activity for result, using the new intent and the request
