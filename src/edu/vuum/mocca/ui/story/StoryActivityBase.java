@@ -60,9 +60,9 @@ import edu.vanderbilt.mooc.R;
 
 /**
  * Base class for all StoryData activities
- * 
+ *
  * @author Michael A. Walker
- * 
+ *
  */
 public class StoryActivityBase extends FragmentActivity implements
 		OnOpenWindowInterface {
@@ -76,7 +76,7 @@ public class StoryActivityBase extends FragmentActivity implements
 	@Override
 	/**
 	 * Handle when the back button is pressed. Overridden to require
-	 * confirmation of wanting to exit via back button. 
+	 * confirmation of wanting to exit via back button.
 	 * This functionality can easily be removed.
 	 */
 	public void onBackPressed() {
@@ -101,11 +101,11 @@ public class StoryActivityBase extends FragmentActivity implements
 
 	/**
 	 * Determine if the device this app is running on is a tablet or a phone.
-	 * 
+	 *
 	 * <p>
 	 * phones generally have less than 600dp (this is the threshold we use, this
 	 * can be adjusted)
-	 * 
+	 *
 	 * @return boolean truth
 	 */
 	private boolean determineDualPane() {

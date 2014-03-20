@@ -77,7 +77,6 @@ public class StoryListActivity extends StoryActivityBase {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.locations, fragment, imageFragmentTag).commit();
         }
-
     }
 
 	@Override
